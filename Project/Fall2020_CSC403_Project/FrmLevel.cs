@@ -96,6 +96,9 @@ namespace Fall2020_CSC403_Project {
                 // update player's picture box
                 picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
             }
+            else
+            { //GAME OVER STATUS
+              }
     }
 
     private bool HitAWall(Character c) {
