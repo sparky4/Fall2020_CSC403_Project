@@ -66,27 +66,36 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+            if (player.Health > 0)
+            {
+                // move player
+                player.Move();
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+                // check collision with walls
+                if (HitAWall(player))
+                {
+                    player.MoveBack();
+                }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+                // check collision with enemies
+                if (HitAChar(player, enemyPoisonPacket) && enemyPoisonPacket.Health > 0)
+                {
+                    Fight(enemyPoisonPacket);
+                }
+                if (HitAChar(player, enemyCheeto) && enemyCheeto.Health > 0)
+                {
+                    Fight(enemyCheeto);
+                }
+                if (HitAChar(player, bossKoolaid) && bossKoolaid.Health > 0)
+                {
+                    Fight(bossKoolaid);
+                }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+
+
+                // update player's picture box
+                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            }
     }
 
     private bool HitAWall(Character c) {
