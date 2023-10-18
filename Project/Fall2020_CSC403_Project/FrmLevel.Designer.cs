@@ -332,13 +332,13 @@
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picBossKoolAid;
+    public System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
+    public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+    public System.Windows.Forms.PictureBox picEnemyCheeto;
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
     private System.Windows.Forms.PictureBox picWall12;
