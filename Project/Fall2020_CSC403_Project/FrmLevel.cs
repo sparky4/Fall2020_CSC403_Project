@@ -125,7 +125,7 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
-            if (!frmBattle.closed)
+            if (!frmBattle.closed && frmBattle != null)
             {
                 frmBattle.Show();
 
@@ -134,6 +134,8 @@ namespace Fall2020_CSC403_Project {
                     frmBattle.SetupForBossBattle();
                 }
             }
+            else
+                frmBattle.closed = false;
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

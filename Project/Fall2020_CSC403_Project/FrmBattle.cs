@@ -15,8 +15,9 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
-      this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-    }
+            this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+//            this.closed = false;
+        }
 
     public void Setup() {
       // update for this enemy
@@ -31,7 +32,13 @@ namespace Fall2020_CSC403_Project {
 
       // show health
       UpdateHealthBars();
-    }
+
+        }
+
+/*    public void Show()
+    {
+        
+    }*/
 
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;
@@ -49,8 +56,7 @@ namespace Fall2020_CSC403_Project {
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
-                instance.closed = false;
-            }
+      }
       return instance;
     }
 
@@ -131,5 +137,15 @@ namespace Fall2020_CSC403_Project {
             closed = true;
         }
 
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
     }
 }
