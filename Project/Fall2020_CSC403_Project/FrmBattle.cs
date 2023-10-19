@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
+    public Boolean closed = false;
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
@@ -14,6 +15,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle() {
       InitializeComponent();
       player = Game.player;
+      this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
     }
 
     public void Setup() {
@@ -47,7 +49,8 @@ namespace Fall2020_CSC403_Project {
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
-      }
+                instance.closed = false;
+            }
       return instance;
     }
 
@@ -123,5 +126,10 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
-  }
+        void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            closed = true;
+        }
+
+    }
 }
