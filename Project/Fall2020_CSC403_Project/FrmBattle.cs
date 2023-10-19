@@ -70,11 +70,45 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
         instance = null;
         Close();
       }
+
+      if (enemy.Health <= 0)
+            {
+                DeleteEnemy(enemy);
+                instance = null;
+                Close();
+            }
     }
+
+    private void DeleteEnemy(Enemy enemy)
+        {
+            if (enemy.Name == "Poison Packet")
+            {
+                if (Program.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
+                {
+                    Program.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyPoisonPacket);
+                }
+            }
+
+            else if (enemy.Name == "Cheeto")
+            {
+                if (Program.FrmLevelInstance.picEnemyCheeto.Parent != null)
+                {
+                    Program.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyCheeto);
+                }
+            }
+
+            else if (enemy.Name == "Koolaid Man")
+            {
+                if (Program.FrmLevelInstance.picBossKoolAid.Parent != null)
+                {
+                    Program.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevelInstance.picBossKoolAid);
+                }
+            }
+        }
 
     private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
