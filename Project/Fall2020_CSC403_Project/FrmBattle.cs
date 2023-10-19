@@ -82,7 +82,8 @@ namespace Fall2020_CSC403_Project {
                 Close();
             }
     }
-
+    // Deletes enemy by removing them from the components list
+    // .Parent gets the components list
     private void DeleteEnemy(Enemy enemy)
         {
             if (enemy.Name == "Poison Packet")

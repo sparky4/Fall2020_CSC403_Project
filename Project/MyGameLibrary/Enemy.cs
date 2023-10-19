@@ -23,6 +23,7 @@ namespace Fall2020_CSC403_Project.code {
         /// 
     public string Name { get; set; }
     public Enemy(Vector2 initPos, Collider collider, string name) : base(initPos, collider) {
+      // Used to uniquely identify each enemy
       Name = name;
     }
 

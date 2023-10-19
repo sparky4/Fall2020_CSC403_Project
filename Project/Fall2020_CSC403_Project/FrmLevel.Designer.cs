@@ -375,11 +375,12 @@
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
-    public System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
     private System.Windows.Forms.PictureBox picWall3;
+    // Enemy PictureBoxes are public so they can be removed from map when defeated in FrmBattle.cs
+    public System.Windows.Forms.PictureBox picBossKoolAid;
     public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
     public System.Windows.Forms.PictureBox picEnemyCheeto;
     private System.Windows.Forms.PictureBox picWall5;
