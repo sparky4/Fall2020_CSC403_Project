@@ -63,42 +63,47 @@ namespace Fall2020_CSC403_Project {
       TimeSpan span = DateTime.Now - timeBegin;
       string time = span.ToString(@"hh\:mm\:ss");
       lblInGameTime.Text = "Time: " + time.ToString();
+      lblHealth.Text = "Health: " + player.Health.ToString();
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-            if (player.Health > 0)
-            {
-                // move player
-                player.Move();
+                    
+                    //death check
+                    if (player.Health <= 0)
+                        {
+                            player.Death();
+                            this.panel1.Show();
+                            Console.WriteLine("Dead!");
+                        }
 
-                // check collision with walls
-                if (HitAWall(player))
-                {
-                    player.MoveBack();
-                }
+                    //player movement
+                    if (player.Health > 0)
+                    {
+                        player.Move();
+                        Console.WriteLine("Still Alive!");
+                    }
 
-                // check collision with enemies
-                if (HitAChar(player, enemyPoisonPacket) && enemyPoisonPacket.Health > 0)
-                {
-                    Fight(enemyPoisonPacket);
-                }
-                if (HitAChar(player, enemyCheeto) && enemyCheeto.Health > 0)
-                {
-                    Fight(enemyCheeto);
-                }
-                if (HitAChar(player, bossKoolaid) && bossKoolaid.Health > 0)
-                {
-                    Fight(bossKoolaid);
-                }
+                    //wall collision
+                    if (HitAWall(player))
+                    {
+                        player.MoveBack();
+                    }
 
+                    //enemy collision
+                    if (HitAChar(player, enemyPoisonPacket) && enemyPoisonPacket.Health > 0)
+                    {
+                        Fight(enemyPoisonPacket);
+                    }
+                    if (HitAChar(player, enemyCheeto) && enemyCheeto.Health > 0)
+                    {
+                        Fight(enemyCheeto);
+                    }
+                    if (HitAChar(player, bossKoolaid) && bossKoolaid.Health > 0)
+                    {
+                        Fight(bossKoolaid);
+                    }
 
-
-                // update player's picture box
-                picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
-            }
-            else
-            { //GAME OVER STATUS
-              }
+                    picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
@@ -154,5 +159,5 @@ namespace Fall2020_CSC403_Project {
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
     }
-  }
+    }
 }
