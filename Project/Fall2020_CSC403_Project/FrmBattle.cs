@@ -103,28 +103,22 @@ namespace Fall2020_CSC403_Project {
     // .Parent gets the components list
     private void DeleteEnemy(Enemy enemy)
         {
-            if (enemy.Name == "Poison Packet")
+            if (enemy.Name == "Poison Packet" & Program.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
             {
-                if (Program.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
-                {
-                    Program.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyPoisonPacket);
-                }
+                
+                Program.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyPoisonPacket);  
             }
 
-            else if (enemy.Name == "Cheeto")
+            else if (enemy.Name == "Cheeto" & Program.FrmLevelInstance.picEnemyCheeto.Parent != null)
             {
-                if (Program.FrmLevelInstance.picEnemyCheeto.Parent != null)
-                {
-                    Program.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyCheeto);
-                }
+            
+                Program.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyCheeto);
             }
 
-            else if (enemy.Name == "Koolaid Man")
+            else if (enemy.Name == "Koolaid Man" & Program.FrmLevelInstance.picBossKoolAid.Parent != null)
             {
-                if (Program.FrmLevelInstance.picBossKoolAid.Parent != null)
-                {
-                    Program.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevelInstance.picBossKoolAid);
-                }
+               
+                Program.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevelInstance.picBossKoolAid); 
             }
         }
 
@@ -171,7 +165,7 @@ namespace Fall2020_CSC403_Project {
         {
 
             instance = null;
-                this.Close(); // Close the form (combat window)
+            this.Close(); // Close the form (combat window)
            
         }
     }

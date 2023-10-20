@@ -141,7 +141,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(415, 649);
-            this.button1.Name = "blockButton";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 66);
             this.button1.TabIndex = 8;
             this.button1.Text = "Block";
@@ -152,7 +152,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(641, 649);
-            this.button2.Name = "runAwayButton";
+            this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(184, 66);
             this.button2.TabIndex = 9;
             this.button2.Text = "Run Away";
