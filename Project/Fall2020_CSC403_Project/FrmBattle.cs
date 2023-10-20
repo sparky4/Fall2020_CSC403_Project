@@ -7,8 +7,8 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
-    public Boolean closed = false;
     public static FrmBattle instance = null;
+//    public static FrmBattle instancetable = null;
     private Enemy enemy;
     private Player player;
 
@@ -35,11 +35,6 @@ namespace Fall2020_CSC403_Project {
 
         }
 
-/*    public void Show()
-    {
-        
-    }*/
-
     public void SetupForBossBattle() {
       picBossBattle.Location = Point.Empty;
       picBossBattle.Size = ClientSize;
@@ -52,11 +47,24 @@ namespace Fall2020_CSC403_Project {
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
-      if (instance == null) {
-        instance = new FrmBattle();
-        instance.enemy = enemy;
-        instance.Setup();
-      }
+//            if (instancetable == null)
+//            {
+                if (instance == null)
+                {
+                    instance = new FrmBattle();
+                    instance.enemy = enemy;
+                    instance.Setup();
+//                    instancetable = instance;
+                }
+//            }
+//            else
+//            {
+//                instance = instancetable;
+//                instancetable = null;
+//                instance.enemy = enemy;
+//                instance.Setup();
+//            }
+
       return instance;
     }
 
@@ -134,10 +142,11 @@ namespace Fall2020_CSC403_Project {
     }
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            closed = true;
+            instance = null;    //bug fix by sparky4
         }
 
-        private const int CP_NOCLOSE_BUTTON = 0x200;
+        //dsable close button
+        /*private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
             get
@@ -146,7 +155,7 @@ namespace Fall2020_CSC403_Project {
                 myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
                 return myCp;
             }
-        }
+        }*/
 
         private void FrmBattle_Load(object sender, EventArgs e)
         {
