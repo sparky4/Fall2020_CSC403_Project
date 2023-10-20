@@ -94,19 +94,16 @@ namespace Fall2020_CSC403_Project {
         {
             if (enemy.Name == "Poison Packet" & Program.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
             {
-                
                 Program.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyPoisonPacket);  
             }
 
             else if (enemy.Name == "Cheeto" & Program.FrmLevelInstance.picEnemyCheeto.Parent != null)
             {
-            
                 Program.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyCheeto);
             }
 
             else if (enemy.Name == "Koolaid Man" & Program.FrmLevelInstance.picBossKoolAid.Parent != null)
-            {
-               
+            {              
                 Program.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevelInstance.picBossKoolAid); 
             }
         }
