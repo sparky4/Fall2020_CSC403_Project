@@ -147,5 +147,22 @@ namespace Fall2020_CSC403_Project {
                 return myCp;
             }
         }
+
+        private void FrmBattle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void blockButton_Click(object sender, EventArgs e)
+        {
+            //Code here to modify the effects of blocking
+        }
+
+        private void runAwayButton_Click(object sender, EventArgs e)
+        {
+            
+                this.Close(); // Close the form (combat window)
+           
+        }
     }
 }
