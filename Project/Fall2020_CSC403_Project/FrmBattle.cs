@@ -160,7 +160,8 @@ namespace Fall2020_CSC403_Project {
 
         private void runAwayButton_Click(object sender, EventArgs e)
         {
-            
+
+            instance = null;
                 this.Close(); // Close the form (combat window)
            
         }
