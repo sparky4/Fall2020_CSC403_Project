@@ -47,24 +47,13 @@ namespace Fall2020_CSC403_Project {
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
-//            if (instancetable == null)
-//            {
-                if (instance == null)
-                {
-                    instance = new FrmBattle();
-                    instance.enemy = enemy;
-                    instance.Setup();
-//                    instancetable = instance;
-                }
-//            }
-//            else
-//            {
-//                instance = instancetable;
-//                instancetable = null;
-//                instance.enemy = enemy;
-//                instance.Setup();
-//            }
-
+        if (instance == null)
+        {
+            instance = new FrmBattle();
+            instance.enemy = enemy;
+            instance.Setup();
+            instance.FormClosed += delegate { instance = null; };
+        }
       return instance;
     }
 
