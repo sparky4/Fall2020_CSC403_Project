@@ -154,5 +154,13 @@ namespace Fall2020_CSC403_Project {
             this.Close(); // Close the form (combat window)
            
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            const int HEAL_AMOUNT = 10; 
+            player.Heal(HEAL_AMOUNT);
+            UpdateHealthBars(); // To update the UI after Healing 
+        }
+
     }
 }
