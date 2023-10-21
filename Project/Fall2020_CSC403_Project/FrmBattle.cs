@@ -114,9 +114,36 @@ namespace Fall2020_CSC403_Project {
 
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
+            CheckHealthAndPromptPotion();
     }
 
-    private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+        private void CheckHealthAndPromptPotion()
+        {
+            const int LOW_HEALTH_THRESHOLD = 10; // adjust this value based on your game's needs
+
+            if (player.Health <= LOW_HEALTH_THRESHOLD)
+            {
+                DialogResult result = MessageBox.Show("Your health is low! Would you like to use a potion?",
+                                                      "Low Health Warning",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    UsePotion();
+                }
+            }
+        }
+
+        private void UsePotion()
+        {
+            const int POTION_HEAL_AMOUNT = 7; // can adjust this value
+            player.AlterHealth(POTION_HEAL_AMOUNT);
+            UpdateHealthBars(); // Assuming you have this function to refresh health display
+        }
+
+
+        private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
