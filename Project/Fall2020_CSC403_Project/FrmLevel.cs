@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -137,28 +138,55 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+            if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Left)
+            { player.GoUp(); player.GoLeft(); }
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+            else if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Right)
+            { player.GoUp(); player.GoRight(); }
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+            else if (e.KeyCode == Keys.Down && e.KeyCode == Keys.Left)
+            { player.GoDown(); player.GoLeft(); }
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+            else if (e.KeyCode == Keys.Down && e.KeyCode == Keys.Right)
+            { player.GoDown(); player.GoRight(); }
+            else
+            if (e.KeyCode != Keys.Left && e.KeyCode != Keys.Right)
+            {
+                if ((e.KeyCode == Keys.Up && e.KeyCode != Keys.Down))
+                    player.GoUp();
+                if ((e.KeyCode == Keys.Down && e.KeyCode != Keys.Up))
+                    player.GoDown();
+            }
+            else if (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down)
+            {
+                if ((e.KeyCode == Keys.Left && e.KeyCode != Keys.Right))
+                    player.GoLeft();
+                if ((e.KeyCode == Keys.Right && e.KeyCode != Keys.Left))
+                    player.GoRight();
+            }
+            else player.ResetMoveSpeed();
+            /*                switch (e.KeyCode) {
+                    case Keys.Left:
+                      player.GoLeft();
+                      break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
-      }
-    }
+                    case Keys.Right:
+                      player.GoRight();
+                      break;
+
+                    case Keys.Up:
+                      player.GoUp();
+                      break;
+
+                    case Keys.Down:
+                      player.GoDown();
+                      break;
+
+                    default:
+                      player.ResetMoveSpeed();
+                      break;
+                  }*/
+        }
 
     private void lblInGameTime_Click(object sender, EventArgs e) {
 
