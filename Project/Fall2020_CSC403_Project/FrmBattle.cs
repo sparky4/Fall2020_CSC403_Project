@@ -157,7 +157,7 @@ namespace Fall2020_CSC403_Project {
 
         private void button3_Click(object sender, EventArgs e)
         {
-            const int HEAL_AMOUNT = 10; 
+            const int HEAL_AMOUNT = 10; //logic
             player.Heal(HEAL_AMOUNT);
             UpdateHealthBars(); // To update the UI after Healing 
         }

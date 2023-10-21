@@ -41,7 +41,7 @@ namespace Fall2020_CSC403_Project.code
         public void Heal(int amount)
         {
             Health += amount;
-            if (Health > MaxHealth) Health = MaxHealth;
+            if (Health > MaxHealth) Health = MaxHealth; 
         }
     }
 }
