@@ -16,6 +16,9 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
+    private Settings settings;
+    
+
     public FrmLevel() {
       InitializeComponent();
     }
@@ -81,7 +84,7 @@ namespace Fall2020_CSC403_Project {
                     if (player.Health > 0)
                     {
                         player.Move();
-                        Console.WriteLine("Still Alive!");
+                        //Console.WriteLine("Still Alive!");
                     }
 
                     //wall collision
@@ -137,7 +140,18 @@ namespace Fall2020_CSC403_Project {
             }
     }
 
-    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Console.WriteLine("OpenMenu");
+                settings = new Settings();
+                settings.Text = "Settings";
+                settings.BackColor = System.Drawing.Color.LightBlue;
+                settings.Show();
+            }
+
+
             if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Left)
             { player.GoUp(); player.GoLeft(); }
 
