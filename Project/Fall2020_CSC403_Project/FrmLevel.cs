@@ -151,8 +151,9 @@ namespace Fall2020_CSC403_Project {
                 settings.Show();
             }
 
-
-            if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Left)
+            //diagnal movement not possible as the e.KeyCode is only able to read 1 key at a time
+            //sorry --sparky4
+/*            if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Left)
             { player.GoUp(); player.GoLeft(); }
 
             else if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Right)
@@ -163,7 +164,8 @@ namespace Fall2020_CSC403_Project {
 
             else if (e.KeyCode == Keys.Down && e.KeyCode == Keys.Right)
             { player.GoDown(); player.GoRight(); }
-            else
+            else*/
+            //  movement for 1 directions
             if (e.KeyCode != Keys.Left && e.KeyCode != Keys.Right)
             {
                 if ((e.KeyCode == Keys.Up && e.KeyCode != Keys.Down))
@@ -178,7 +180,8 @@ namespace Fall2020_CSC403_Project {
                 if ((e.KeyCode == Keys.Right && e.KeyCode != Keys.Left))
                     player.GoRight();
             }
-            else player.ResetMoveSpeed();
+            else player.ResetMoveSpeed();   // do not move
+            //old code below
             /*                switch (e.KeyCode) {
                     case Keys.Left:
                       player.GoLeft();
