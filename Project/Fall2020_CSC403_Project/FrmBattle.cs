@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmBattle : Form {
     public static FrmBattle instance = null;
-//    public static FrmBattle instancetable = null;
+    public bool in_use = true;
     private Enemy enemy;
     private Player player;
 
@@ -16,7 +16,6 @@ namespace Fall2020_CSC403_Project {
       InitializeComponent();
       player = Game.player;
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-//            this.closed = false;
         }
 
     public void Setup() {
@@ -149,7 +148,9 @@ namespace Fall2020_CSC403_Project {
     }
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            in_use = false;
             instance = null;    //bug fix by sparky4
+            GC.Collect();
         }
 
         //dsable close button
@@ -176,8 +177,9 @@ namespace Fall2020_CSC403_Project {
 
         private void runAwayButton_Click(object sender, EventArgs e)
         {
-
+            in_use = false;
             instance = null;
+            GC.Collect();
             this.Close(); // Close the form (combat window)
            
         }
