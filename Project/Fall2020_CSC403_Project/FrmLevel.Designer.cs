@@ -320,7 +320,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1155, 687);
+            this.ClientSize = new System.Drawing.Size(this.WindowWidth, this.WindowHeight);
             this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.lblHealth);
             this.Controls.Add(this.panel1);
@@ -343,7 +343,8 @@
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);

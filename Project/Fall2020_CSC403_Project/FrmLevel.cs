@@ -16,6 +16,8 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
+    private int WindowWidth = 1155;
+    private int WindowHeight = 687;
     private Settings settings;
     
 
@@ -144,7 +146,7 @@ namespace Fall2020_CSC403_Project {
 
             if (e.KeyCode == Keys.Escape)
             {
-                Console.WriteLine("OpenMenu");
+                Console.WriteLine("OpenSettings");
                 settings = new Settings();
                 settings.Text = "Settings";
                 settings.BackColor = System.Drawing.Color.LightBlue;

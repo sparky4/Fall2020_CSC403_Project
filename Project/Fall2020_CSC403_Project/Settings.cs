@@ -14,6 +14,10 @@ namespace Fall2020_CSC403_Project
 {
     public partial class Settings : Form
     {
+        private int WIDTH = 1155;
+        private int HEIGHT = 687;
+
+
         public Settings()
         {
             InitializeComponent();
@@ -23,20 +27,18 @@ namespace Fall2020_CSC403_Project
         {
             // Code to be executed when the form is loaded
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        // Completley Restarts Game when pressed
+        private void RestartButton_Click(object sender, EventArgs e)
         {
-            // Code to be executed when button1 is clicked
+            Application.Restart();
+            Environment.Exit(0);
         }
 
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                Console.WriteLine("CloseMenu");
-                this.Close();
-            }
+            
         }
 
         
