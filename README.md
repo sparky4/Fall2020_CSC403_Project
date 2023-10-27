@@ -32,8 +32,15 @@ Documentation for EnemyDeleteFunction By Grant Gremillion:
         Also checks that the Windows Picture Box object corresponding with that enemy is in the component list
             If both statements above are true, the Windows Picture Box object for corresponding enemy is removed from the components list,
             removing the enemy from the screen.
-        
-    
+
+=======
+Documentation for Settings Window By Grant Gremillion:
+    Description :
+        Corresponding settings class inherits from Form class. The window is displayed on top of the FrmLevel window when the escape key is pressed. 
+    Buttons :
+        Restart Button - When pressed, the FrmLevel Window is destroyed and re-created to start the game over
+        Unpause Button - When pressed, the settings window instance is destroyed and the player can continue playing.
+
 =======
 12/20/23  Runaway button was added to the FrmBattle.cs file through the FrmBattle.cs[Design] option in the Windows Forms Designer.  The function was added to the frmBattle.cs file at line 161 (at time of this documentation)  :    
      private void runAwayButton_Click(object sender, EventArgs e)
@@ -44,5 +51,6 @@ Documentation for EnemyDeleteFunction By Grant Gremillion:
     
      }
      Clicking on the button effectivly closes the combat window.  
+
 
 
