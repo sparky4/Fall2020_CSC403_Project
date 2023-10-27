@@ -3,9 +3,12 @@ using System;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+        private WindowsMediaPlayer mediaPlayer = new WindowsMediaPlayer();
+
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -20,12 +23,20 @@ namespace Fall2020_CSC403_Project {
     private int WindowHeight = 687;
     private Settings settings;
     
+    private void PlayBackgroundMusic()
+        {
+            mediaPlayer.URL = "C:\\Users\\shake\\Downloads\\song1.wav"; // your music file path
+            mediaPlayer.settings.setMode("loop", true); // This will loop the music
+            mediaPlayer.controls.play();
+
+        }
 
     public FrmLevel() {
       InitializeComponent();
     }
 
     private void FrmLevel_Load(object sender, EventArgs e) {
+            PlayBackgroundMusic();
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 
