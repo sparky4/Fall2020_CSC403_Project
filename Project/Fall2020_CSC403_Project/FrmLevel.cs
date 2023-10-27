@@ -26,13 +26,15 @@ namespace Fall2020_CSC403_Project {
     
     private void PlayBackgroundMusic()
         {
-                mediaPlayer.URL = "song1.wav"; // your music file path
+            //fix by sparky4
+            mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file path
             if (!File.Exists(mediaPlayer.URL))
             {
+            //    Console.WriteLine(mediaPlayer.URL);
                 mediaPlayer.settings.setMode("loop", true); // This will loop the music
                 mediaPlayer.controls.play();
             }
-            Console.WriteLine(Directory.GetCurrentDirectory());
+            //Console.WriteLine(mediaPlayer.URL);
         }
 
     public FrmLevel() {
