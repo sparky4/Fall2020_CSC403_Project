@@ -148,7 +148,7 @@ namespace Fall2020_CSC403_Project {
     }
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            in_use = false;
+            //in_use = false;
             instance = null;    //bug fix by sparky4
             GC.Collect();
         }
@@ -177,7 +177,7 @@ namespace Fall2020_CSC403_Project {
 
         private void runAwayButton_Click(object sender, EventArgs e)
         {
-            in_use = false;
+            //in_use = false;
             instance = null;
             GC.Collect();
             this.Close(); // Close the form (combat window)

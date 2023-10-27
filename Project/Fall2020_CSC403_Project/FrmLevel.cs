@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using WMPLib;
@@ -25,10 +26,13 @@ namespace Fall2020_CSC403_Project {
     
     private void PlayBackgroundMusic()
         {
-            mediaPlayer.URL = "C:\\Users\\shake\\Downloads\\song1.wav"; // your music file path
-            mediaPlayer.settings.setMode("loop", true); // This will loop the music
-            mediaPlayer.controls.play();
-
+                mediaPlayer.URL = "song1.wav"; // your music file path
+            if (!File.Exists(mediaPlayer.URL))
+            {
+                mediaPlayer.settings.setMode("loop", true); // This will loop the music
+                mediaPlayer.controls.play();
+            }
+            Console.WriteLine(Directory.GetCurrentDirectory());
         }
 
     public FrmLevel() {
