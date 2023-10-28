@@ -52,5 +52,19 @@ Documentation for Settings Window By Grant Gremillion:
      }
      Clicking on the button effectivly closes the combat window.  
 
+========
+Healing Button is added to the FrmBattle.cs with the help of FrmBattle[Design] otion from the designer. After that , the function was added .
+
+private void button3_Click(object sender, EventArgs e)
+        {
+            const int HEAL_AMOUNT = 10; 
+            player.Heal(HEAL_AMOUNT); // Calls the Heal method on the player.
+            UpdateHealthBars();  /// Updates the UI to reflect the new health after healing.
+        }
+
+===============
+Alert for Low Health 
+
+Within the FrmBattle.cs file, there's a health-check mechanism in place. If a player's health drops below 10, they're prompted to use a health potion. Accepting this recovers 7 health points and the UI is updated to reflect the new health value
 
 
