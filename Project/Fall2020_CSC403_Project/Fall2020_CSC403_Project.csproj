@@ -142,7 +142,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\gun.png" />
+    <Content Include="data\gun.fw.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\song1.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
