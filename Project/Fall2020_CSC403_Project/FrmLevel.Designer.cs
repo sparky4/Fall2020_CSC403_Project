@@ -33,6 +33,9 @@
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+
+            this.picGun = new System.Windows.Forms.PictureBox();
+
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall12 = new System.Windows.Forms.PictureBox();
@@ -50,6 +53,7 @@
             this.lblHealth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGun)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -113,6 +117,19 @@
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
+
+            //
+            // picGun
+            //
+            this.picGun.BackColor = System.Drawing.Color.Transparent;
+            this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gun;
+            this.picGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picGun.Location = new System.Drawing.Point(500, 270);
+            this.picGun.Name = "gun";
+            this.picGun.Size = new System.Drawing.Size(64, 107);
+            this.picGun.TabIndex = 5;
+            this.picGun.TabStop = false;
+
             // 
             // picWall3
             // 
@@ -341,6 +358,7 @@
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.picGun);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -354,6 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGun)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
@@ -384,6 +403,10 @@
     public System.Windows.Forms.PictureBox picBossKoolAid;
     public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
     public System.Windows.Forms.PictureBox picEnemyCheeto;
+
+
+    public System.Windows.Forms.PictureBox picGun;
+
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
     private System.Windows.Forms.PictureBox picWall12;

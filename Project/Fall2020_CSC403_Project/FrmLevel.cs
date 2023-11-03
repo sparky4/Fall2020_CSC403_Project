@@ -19,6 +19,11 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Character[] walls;
 
+        // Creating Items
+        private Item gun;
+
+
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
@@ -55,6 +60,11 @@ namespace Fall2020_CSC403_Project
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), "Koolaid Man");
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), "Poison Packet");
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), "Cheeto");
+
+            // Giving values to all items
+            
+            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING));
+            //gun.Img = picGun.BackgroundImage;
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
