@@ -73,6 +73,21 @@ namespace Fall2020_CSC403_Project
 
             lblPlayerHealthFull.Text = player.Health.ToString();
             lblEnemyHealthFull.Text = enemy.Health.ToString();
+
+            if (player.Health < 6)
+            {
+                this.BackColor = Color.Red; // Danger
+            }
+            else if (player.Health < 12)
+            {
+                this.BackColor = Color.Orange; // Warning
+            }
+            else
+            {
+                this.BackColor = Color.Green; // Safe
+            }
+
+
         }
 
         private void btnAttack_Click(object sender, EventArgs e)
