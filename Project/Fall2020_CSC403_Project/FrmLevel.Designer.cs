@@ -1,4 +1,9 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using System.IO;
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -34,7 +39,10 @@
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
 
+            // Initialize all items
             this.picGun = new System.Windows.Forms.PictureBox();
+            this.picSword = new System.Windows.Forms.PictureBox();
+            this.picSheild = new System.Windows.Forms.PictureBox();
 
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
@@ -54,6 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSheild)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -121,14 +131,38 @@
             //
             // picGun
             //
-            this.picGun.BackColor = System.Drawing.Color.Transparent;
-            this.picGun.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.gun;
-            this.picGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picGun.Location = new System.Drawing.Point(500, 270);
+            
+            this.picGun.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\gun.fw.png");
+            this.picGun.Location = new System.Drawing.Point(500, 100);
             this.picGun.Name = "gun";
-            this.picGun.Size = new System.Drawing.Size(64, 107);
+            this.picGun.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.picGun.Size = new System.Drawing.Size(60, 60);
             this.picGun.TabIndex = 5;
             this.picGun.TabStop = false;
+
+            //
+            // picSword
+            //
+            
+            this.picSword.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\sword.jpg");
+            this.picSword.Location = new System.Drawing.Point(120, 280);
+            this.picSword.Name = "gun";
+            this.picSword.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.picSword.Size = new System.Drawing.Size(60, 60);
+            this.picSword.TabIndex = 5;
+            this.picSword.TabStop = false;
+
+            //
+            // picSheild
+            //
+            
+            this.picSheild.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\sheild.jpg");
+            this.picSheild.Location = new System.Drawing.Point(1000, 575);
+            this.picSheild.Name = "gun";
+            this.picSheild.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.picSheild.Size = new System.Drawing.Size(60, 60);
+            this.picSheild.TabIndex = 5;
+            this.picSheild.TabStop = false;
 
             // 
             // picWall3
@@ -359,6 +393,8 @@
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picGun);
+            this.Controls.Add(this.picSword);
+            this.Controls.Add(this.picSheild);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -373,6 +409,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSheild)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
@@ -406,6 +444,8 @@
 
 
     public System.Windows.Forms.PictureBox picGun;
+    public System.Windows.Forms.PictureBox picSword;
+    public System.Windows.Forms.PictureBox picSheild;
 
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;

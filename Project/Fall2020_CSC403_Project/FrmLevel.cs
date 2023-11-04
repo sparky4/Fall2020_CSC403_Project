@@ -21,7 +21,8 @@ namespace Fall2020_CSC403_Project
 
         // Creating Items
         private Item gun;
-
+        private Item sword;
+        private Item sheild;
 
 
         private DateTime timeBegin;
@@ -64,7 +65,15 @@ namespace Fall2020_CSC403_Project
             // Giving values to all items
             
             gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING));
-            //gun.Img = picGun.BackgroundImage;
+            gun.Img = picGun.Image;
+
+            sword = new Item(CreatePosition(picSword), CreateCollider(picSword, PADDING));
+            sword.Img = picSword.Image;
+
+            sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING));
+            sheild.Img = picSheild.Image;
+
+
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
