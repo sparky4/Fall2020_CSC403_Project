@@ -5,6 +5,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using WMPLib;
+using System.Windows.Input;
 
 namespace Fall2020_CSC403_Project
 {
@@ -30,7 +31,7 @@ namespace Fall2020_CSC403_Project
         {
             //fix by sparky4
 
-            //mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
+            mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
 
             if (!File.Exists(mediaPlayer.URL))
             {
@@ -86,7 +87,7 @@ namespace Fall2020_CSC403_Project
             return new Collider(rect);
         }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             player.ResetMoveSpeed();
         }
@@ -172,7 +173,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -185,18 +186,19 @@ namespace Fall2020_CSC403_Project
 
             //diagnal movement not possible as the e.KeyCode is only able to read 1 key at a time
             //sorry --sparky4
-            /*if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Left)
-            { player.GoUp(); player.GoLeft(); }
 
-            else if (e.KeyCode == Keys.Up && e.KeyCode == Keys.Right)
-            { player.GoUp(); player.GoRight(); }
+            if (Keyboard.IsKeyDown(Key.Up) && Keyboard.IsKeyDown(Key.Left))
+            { player.GoUpLeft(); }// player.GoLeft(); Console.WriteLine("up left"); }
 
-            else if (e.KeyCode == Keys.Down && e.KeyCode == Keys.Left)
-            { player.GoDown(); player.GoLeft(); }
+            else if (Keyboard.IsKeyDown(Key.Up) && Keyboard.IsKeyDown(Key.Right))
+            { player.GoUpRight(); }// player.GoRight(); Console.WriteLine("up right"); }
 
-            else if (e.KeyCode == Keys.Down && e.KeyCode == Keys.Right)
-            { player.GoDown(); player.GoRight(); }
-            */
+            else if (Keyboard.IsKeyDown(Key.Down) && Keyboard.IsKeyDown(Key.Left))
+            { player.GoDownLeft(); }// player.GoLeft(); Console.WriteLine("down left"); }
+
+            else if (Keyboard.IsKeyDown(Key.Down) && Keyboard.IsKeyDown(Key.Right))
+            { player.GoDownRight(); }// player.GoRight(); Console.WriteLine("down right"); }
+            else
             //  movement for 1 directions
             if (e.KeyCode != Keys.Left && e.KeyCode != Keys.Right)
             {
@@ -212,7 +214,7 @@ namespace Fall2020_CSC403_Project
                 if ((e.KeyCode == Keys.Right && e.KeyCode != Keys.Left))
                     player.GoRight();
             }
-            else player.ResetMoveSpeed();
+            //else player.ResetMoveSpeed();
             /*
             switch (e.KeyCode)
             {
