@@ -203,9 +203,7 @@ namespace Fall2020_CSC403_Project
             }
 
 
-            //diagnal movement not possible as the e.KeyCode is only able to read 1 key at a time
-            //sorry --sparky4
-
+            //movement
             if (Keyboard.IsKeyDown(Key.Up) && Keyboard.IsKeyDown(Key.Left))
             { player.GoUpLeft(); }// player.GoLeft(); Console.WriteLine("up left"); }
 
