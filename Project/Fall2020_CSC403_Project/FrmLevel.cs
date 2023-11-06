@@ -30,6 +30,9 @@ namespace Fall2020_CSC403_Project
         private Collider portalToNextLevel1;
         private Collider portalToNextLevel2;
 
+        //Condition to restrict more than one instance of next level from executing
+        private bool levelCompleted = false;
+
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
@@ -189,16 +192,14 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(bossKoolaid);
             }
-            if (IsAtPortal())
+            // if (IsAtPortal())
+            // {
+            //     CompleteLevel();
+            // }
+            if (!levelCompleted && IsAtPortal())
             {
+                levelCompleted = true;
                 CompleteLevel();
-            }
-
-
-            // Check for warp condition, e.g., reaching a portal
-            if (IsAtPortal())
-            {
-                WarpToLevel2();
             }
 
             if (HitAnItem(player, gun))
