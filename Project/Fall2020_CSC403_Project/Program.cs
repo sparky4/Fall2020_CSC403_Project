@@ -8,6 +8,7 @@ namespace Fall2020_CSC403_Project {
   static class Program {
 
         public static FrmLevel FrmLevelInstance { get; private set; }
+        public static FrmLevel FrmLevel2Instance { get; private set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
