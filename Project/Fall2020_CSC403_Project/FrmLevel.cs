@@ -154,8 +154,41 @@ namespace Fall2020_CSC403_Project
                 Fight(bossKoolaid);
             }
 
+            if (HitAnItem(player, gun))
+            {
+                // We must check that the gun exists before attmpting to delete it
+                if (Program.FrmLevelInstance.picGun.Parent != null)
+                {
+                    Program.FrmLevelInstance.picGun.Parent.Controls.Remove(Program.FrmLevelInstance.picGun);
+                }
+            }
+
+            if (HitAnItem(player, sword))
+            {
+
+                if (Program.FrmLevelInstance.picSword.Parent != null)
+                {
+                    Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
+                }
+            }
+
+            if (HitAnItem(player, sheild))
+            {
+
+                if (Program.FrmLevelInstance.picSheild.Parent != null)
+                {
+                    Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSheild);
+                }
+            }
+
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
+
+        private bool HitAnItem(Character you, Item item)
+        {
+            return you.Collider.Intersects(item.Collider);
+        }
+
 
         private bool HitAWall(Character c)
         {
