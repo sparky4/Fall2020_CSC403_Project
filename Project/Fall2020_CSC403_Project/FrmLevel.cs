@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using WMPLib;
 using System.Windows.Input;
 
+
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel : Form
@@ -20,6 +21,8 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Character[] walls;
 
+
+        private Inventory inventory;
         // Creating Items
         private Item gun;
         private Item sword;
@@ -65,14 +68,19 @@ namespace Fall2020_CSC403_Project
 
             // Giving values to all items
             
-            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING));
+            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING),"gun");
             gun.Img = picGun.Image;
+            
 
-            sword = new Item(CreatePosition(picSword), CreateCollider(picSword, PADDING));
+            sword = new Item(CreatePosition(picSword), CreateCollider(picSword, PADDING),"sword");
             sword.Img = picSword.Image;
 
-            sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING));
+
+            sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING),"sheild");
             sheild.Img = picSheild.Image;
+
+
+            inventory = new Inventory();
 
 
 
@@ -159,6 +167,8 @@ namespace Fall2020_CSC403_Project
                 // We must check that the gun exists before attmpting to delete it
                 if (Program.FrmLevelInstance.picGun.Parent != null)
                 {
+                    inventory.AddItem(gun);
+                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picGun.Parent.Controls.Remove(Program.FrmLevelInstance.picGun);
                 }
             }
@@ -168,7 +178,9 @@ namespace Fall2020_CSC403_Project
 
                 if (Program.FrmLevelInstance.picSword.Parent != null)
                 {
-                    Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
+                    inventory.AddItem(sword);
+                    inventory.DisplayInventory();
+                    Program.FrmLevelInstance.picSword.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
                 }
             }
 
@@ -177,6 +189,8 @@ namespace Fall2020_CSC403_Project
 
                 if (Program.FrmLevelInstance.picSheild.Parent != null)
                 {
+                    inventory.AddItem(sheild);
+                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSheild);
                 }
             }
