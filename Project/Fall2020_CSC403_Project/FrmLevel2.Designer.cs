@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
+  partial class FrmLevel2 {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -399,10 +399,10 @@ namespace Fall2020_CSC403_Project {
             this.Name = "FrmLevel";
             //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel2_KeyDown);
             this.Text = "Explore";
-            this.Load += new System.EventHandler(this.FrmLevel_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            this.Load += new System.EventHandler(this.FrmLevel2_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel2_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
