@@ -18,10 +18,11 @@ namespace Fall2020_CSC403_Project.code
         public Collider Collider { get; private set; }
 
 
-        public Item(Vector2 Pos, Collider collider)
+        public Item(Vector2 Pos, Collider collider, String name)
         {
             Position = Pos;
             Collider = collider;
+            Name = name;
         }
 
 

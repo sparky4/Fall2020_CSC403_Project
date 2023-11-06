@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using WMPLib;
 using System.Windows.Input;
 
+
 namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel : Form
@@ -20,11 +21,19 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Character[] walls;
 
+
+        private Inventory inventory;
         // Creating Items
         private Item gun;
         private Item sword;
         private Item sheild;
 
+        //2 boundary's are needed to cover the top right of the screen,  
+        private Collider portalToNextLevel1;
+        private Collider portalToNextLevel2;
+
+        //Condition to restrict more than one instance of next level from executing
+        private bool levelCompleted = false;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -50,13 +59,45 @@ namespace Fall2020_CSC403_Project
         public FrmLevel()
         {
             InitializeComponent();
+
+            // Using mouseclick to get x and y coordinates
+            this.MouseClick += FrmLevel_MouseClick;
         }
+        // This goes within the FrmLevel class definition
+   
+
+        private void FrmLevel_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            // Get the X and Y coordinates of the mouse click
+            int x = e.X;
+            int y = e.Y;
+
+      
+            MessageBox.Show($"X: {x}, Y: {y}", "Mouse Click Coordinates");
+        }
+
+        private void CompleteLevel()
+        {
+            FrmLevel2 frmLevel2 = new FrmLevel2();
+            this.Hide();
+            frmLevel2.ShowDialog(); // Or use Show() if you don't want it to be modal.
+            this.Close(); // Close FrmLevel if you're done with it.
+        }
+
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             PlayBackgroundMusic();
             const int PADDING = 7;
             const int NUM_WALLS = 13;
+
+            // Initialize the first portal collider
+            Rectangle portalRect1 = new Rectangle(1020, 0, 133, 5); // (x, y, width, height)
+            portalToNextLevel1 = new Collider(portalRect1);
+
+            // Initialize the second portal collider
+            Rectangle portalRect2 = new Rectangle(1153, 5, 5, 272);  
+            portalToNextLevel2 = new Collider(portalRect2);
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), "Koolaid Man");
@@ -65,14 +106,19 @@ namespace Fall2020_CSC403_Project
 
             // Giving values to all items
             
-            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING));
+            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING),"gun");
             gun.Img = picGun.Image;
+            
 
-            sword = new Item(CreatePosition(picSword), CreateCollider(picSword, PADDING));
+            sword = new Item(CreatePosition(picSword), CreateCollider(picSword, PADDING),"sword");
             sword.Img = picSword.Image;
 
-            sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING));
+
+            sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING),"sheild");
             sheild.Img = picSheild.Image;
+
+
+            inventory = new Inventory();
 
 
 
@@ -153,9 +199,70 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(bossKoolaid);
             }
+            // if (IsAtPortal())
+            // {
+            //     CompleteLevel();
+            // }
+            if (!levelCompleted && IsAtPortal())
+            {
+                levelCompleted = true;
+                CompleteLevel();
+            }
+
+            if (HitAnItem(player, gun))
+            {
+                // We must check that the gun exists before attmpting to delete it
+                if (Program.FrmLevelInstance.picGun.Parent != null)
+                {
+                    inventory.AddItem(gun);
+                    inventory.DisplayInventory();
+                    Program.FrmLevelInstance.picGun.Parent.Controls.Remove(Program.FrmLevelInstance.picGun);
+                }
+            }
+
+            if (HitAnItem(player, sword))
+            {
+
+                if (Program.FrmLevelInstance.picSword.Parent != null)
+                {
+                    inventory.AddItem(sword);
+                    inventory.DisplayInventory();
+                    Program.FrmLevelInstance.picSword.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
+                }
+            }
+
+            if (HitAnItem(player, sheild))
+            {
+
+                if (Program.FrmLevelInstance.picSheild.Parent != null)
+                {
+                    inventory.AddItem(sheild);
+                    inventory.DisplayInventory();
+                    Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSheild);
+                }
+            }
 
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
+        private bool IsAtPortal()
+        {
+            return player.Collider.Intersects(portalToNextLevel1) ||
+                   player.Collider.Intersects(portalToNextLevel2);
+        }
+
+        private void WarpToLevel2()
+        {
+            FrmLevel2 frmLevel2 = new FrmLevel2(); // Fix the variable name here
+            frmLevel2.Show(); // Now using the correct variable name
+            this.Hide(); // Hide the current form instead of closing it, if necessary
+        }
+
+
+        private bool HitAnItem(Character you, Item item)
+        {
+            return you.Collider.Intersects(item.Collider);
+        }
+
 
         private bool HitAWall(Character c)
         {
