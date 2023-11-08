@@ -397,7 +397,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picSheild);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
-            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);

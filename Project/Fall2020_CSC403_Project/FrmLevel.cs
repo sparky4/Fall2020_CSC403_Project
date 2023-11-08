@@ -211,11 +211,10 @@ namespace Fall2020_CSC403_Project
 
             if (HitAnItem(player, gun))
             {
-                // We must check that the gun exists before attmpting to delete it
+                // We must check that the gun exists before attmpting to delete it from the map
                 if (Program.FrmLevelInstance.picGun.Parent != null)
                 {
                     inventory.AddItem(gun);
-                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picGun.Parent.Controls.Remove(Program.FrmLevelInstance.picGun);
                 }
             }
@@ -226,7 +225,6 @@ namespace Fall2020_CSC403_Project
                 if (Program.FrmLevelInstance.picSword.Parent != null)
                 {
                     inventory.AddItem(sword);
-                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picSword.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
                 }
             }
@@ -237,7 +235,6 @@ namespace Fall2020_CSC403_Project
                 if (Program.FrmLevelInstance.picSheild.Parent != null)
                 {
                     inventory.AddItem(sheild);
-                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSheild);
                 }
             }
@@ -301,6 +298,13 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            // The player wants to access their inventory
+            if (e.KeyCode == Keys.I)
+            {
+                inventory.DisplayInventory();
+            }
+
+            // The player wants to access the settings
             if (e.KeyCode == Keys.Escape)
             {
                 settings = new Settings();
