@@ -153,6 +153,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\2053868.jpg" />
     <Content Include="data\gun.fw.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
