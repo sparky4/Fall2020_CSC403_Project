@@ -132,16 +132,36 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+
+        
+       
+
+        
+        private void PlayerDamage(int amount)
+        {
+            FlashScreen();
+            player.AlterHealth(amount);
+            CheckHealthAndPromptPotion();
+            
+        }
+
+        private void FlashScreen()
+        {
+            var originalColor = this.BackColor;
+            this.BackColor = Color.Red; // Color to flash
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(100); // Duration of the flash in milliseconds
+            this.BackColor = originalColor;
+        }
+
+
+
         private void EnemyDamage(int amount)
         {
             enemy.AlterHealth(amount);
         }
 
-        private void PlayerDamage(int amount)
-        {
-            player.AlterHealth(amount);
-            CheckHealthAndPromptPotion();
-        }
+       
 
         private void CheckHealthAndPromptPotion()
         {
