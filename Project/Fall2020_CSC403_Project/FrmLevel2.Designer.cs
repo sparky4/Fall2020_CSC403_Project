@@ -38,9 +38,6 @@ namespace Fall2020_CSC403_Project {
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.picGun = new System.Windows.Forms.PictureBox();
-            this.picSword = new System.Windows.Forms.PictureBox();
-            this.picSheild = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall12 = new System.Windows.Forms.PictureBox();
@@ -61,9 +58,6 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picGun)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSheild)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).BeginInit();
@@ -85,7 +79,7 @@ namespace Fall2020_CSC403_Project {
             this.lblInGameTime.BackColor = System.Drawing.Color.Black;
             this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInGameTime.ForeColor = System.Drawing.Color.White;
-            this.lblInGameTime.Location = new System.Drawing.Point(16, 11);
+            this.lblInGameTime.Location = new System.Drawing.Point(16, 14);
             this.lblInGameTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInGameTime.Name = "lblInGameTime";
             this.lblInGameTime.Size = new System.Drawing.Size(58, 24);
@@ -164,36 +158,6 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.Size = new System.Drawing.Size(72, 130);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
-            // 
-            // picGun
-            // 
-            this.picGun.Location = new System.Drawing.Point(667, 123);
-            this.picGun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.picGun.Name = "picGun";
-            this.picGun.Size = new System.Drawing.Size(80, 74);
-            this.picGun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picGun.TabIndex = 5;
-            this.picGun.TabStop = false;
-            // 
-            // picSword
-            // 
-            this.picSword.Location = new System.Drawing.Point(160, 345);
-            this.picSword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.picSword.Name = "picSword";
-            this.picSword.Size = new System.Drawing.Size(80, 74);
-            this.picSword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picSword.TabIndex = 5;
-            this.picSword.TabStop = false;
-            // 
-            // picSheild
-            // 
-            this.picSheild.Location = new System.Drawing.Point(1333, 708);
-            this.picSheild.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.picSheild.Name = "picSheild";
-            this.picSheild.Size = new System.Drawing.Size(80, 74);
-            this.picSheild.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picSheild.TabIndex = 5;
-            this.picSheild.TabStop = false;
             // 
             // picWall5
             // 
@@ -413,9 +377,6 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
-            this.Controls.Add(this.picGun);
-            this.Controls.Add(this.picSword);
-            this.Controls.Add(this.picSheild);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmLevel2";
@@ -429,9 +390,6 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picGun)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSheild)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
@@ -462,11 +420,6 @@ namespace Fall2020_CSC403_Project {
     public System.Windows.Forms.PictureBox picBossKoolAid;
     public System.Windows.Forms.PictureBox picEnemyPoisonPacket;
     public System.Windows.Forms.PictureBox picEnemyCheeto;
-
-
-    public System.Windows.Forms.PictureBox picGun;
-    public System.Windows.Forms.PictureBox picSword;
-    public System.Windows.Forms.PictureBox picSheild;
 
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
