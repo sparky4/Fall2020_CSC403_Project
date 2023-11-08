@@ -87,7 +87,8 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel2_Load(object sender, EventArgs e)
         {
-            PlayBackgroundMusic();
+            // not needed for level 2
+            //PlayBackgroundMusic();
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
@@ -105,8 +106,8 @@ namespace Fall2020_CSC403_Project
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), "Cheeto");
 
             // Giving values to all items
-            
-            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING),"gun");
+            // no items on 2nd level -- sparky4
+            /*gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING),"gun");
             gun.Img = picGun.Image;
             
 
@@ -115,7 +116,7 @@ namespace Fall2020_CSC403_Project
 
 
             sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING),"sheild");
-            sheild.Img = picSheild.Image;
+            sheild.Img = picSheild.Image;*/
 
 
             inventory = new Inventory();
@@ -209,7 +210,7 @@ namespace Fall2020_CSC403_Project
                 CompleteLevel();
             }
 
-            if (HitAnItem(player, gun))
+            /*if (HitAnItem(player, gun))
             {
                 // We must check that the gun exists before attmpting to delete it
                 if (Program.FrmLevel2Instance.picGun.Parent != null)
@@ -240,7 +241,7 @@ namespace Fall2020_CSC403_Project
                     inventory.DisplayInventory();
                     Program.FrmLevel2Instance.picSheild.Parent.Controls.Remove(Program.FrmLevel2Instance.picSheild);
                 }
-            }
+            }*/
 
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
@@ -258,10 +259,10 @@ namespace Fall2020_CSC403_Project
         }
 
 
-        private bool HitAnItem(Character you, Item item)
+        /*private bool HitAnItem(Character you, Item item)
         {
             return you.Collider.Intersects(item.Collider);
-        }
+        }*/
 
 
         private bool HitAWall(Character c)
@@ -367,6 +368,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picBossKoolAid_Click(object sender, EventArgs e)
         {
 
         }

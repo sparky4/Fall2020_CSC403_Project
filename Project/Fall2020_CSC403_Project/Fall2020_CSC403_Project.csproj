@@ -159,9 +159,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\2053868.jpg" />
     <Content Include="data\gun.fw.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="data\LilCaesars.jpg" />
+    <None Include="data\MasterShake.jpg" />
+    <None Include="data\Noid.jpg" />
     <Content Include="data\sheild.jpg" />
     <Content Include="data\song1.wav" />
     <Content Include="data\sword.jpg" />
