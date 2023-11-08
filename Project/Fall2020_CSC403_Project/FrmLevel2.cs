@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class FrmLevel : Form
+    public partial class FrmLevel2 : Form
     {
         private WindowsMediaPlayer mediaPlayer = new WindowsMediaPlayer();
 
@@ -56,17 +56,17 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        public FrmLevel()
+        public FrmLevel2()
         {
             InitializeComponent();
 
             // Using mouseclick to get x and y coordinates
-            this.MouseClick += FrmLevel_MouseClick;
+            this.MouseClick += FrmLevel2_MouseClick;
         }
-        // This goes within the FrmLevel class definition
+        // This goes within the FrmLevel2 class definition
    
 
-        private void FrmLevel_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void FrmLevel2_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             // Get the X and Y coordinates of the mouse click
             int x = e.X;
@@ -78,16 +78,17 @@ namespace Fall2020_CSC403_Project
 
         private void CompleteLevel()
         {
-            FrmLevel2 frmLevel2 = new FrmLevel2();
+//            FrmLevel3 FrmLevel3 = new FrmLevel3();
             this.Hide();
-            frmLevel2.ShowDialog(); // Or use Show() if you don't want it to be modal.
-            this.Close(); // Close FrmLevel if you're done with it.
+//            FrmLevel3.ShowDialog(); // Or use Show() if you don't want it to be modal.
+            this.Close(); // Close FrmLevel2 if you're done with it.
         }
 
 
-        private void FrmLevel_Load(object sender, EventArgs e)
+        private void FrmLevel2_Load(object sender, EventArgs e)
         {
-            PlayBackgroundMusic();
+            // not needed for level 2
+            //PlayBackgroundMusic();
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
@@ -152,7 +153,7 @@ namespace Fall2020_CSC403_Project
             return new Collider(rect);
         }
 
-        private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void FrmLevel2_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             player.ResetMoveSpeed();
         }
@@ -212,33 +213,33 @@ namespace Fall2020_CSC403_Project
             if (HitAnItem(player, gun))
             {
                 // We must check that the gun exists before attmpting to delete it
-                if (Program.FrmLevelInstance.picGun.Parent != null)
+                if (Program.FrmLevel2Instance.picGun.Parent != null)
                 {
                     inventory.AddItem(gun);
                     inventory.DisplayInventory();
-                    Program.FrmLevelInstance.picGun.Parent.Controls.Remove(Program.FrmLevelInstance.picGun);
+                    Program.FrmLevel2Instance.picGun.Parent.Controls.Remove(Program.FrmLevel2Instance.picGun);
                 }
             }
 
             if (HitAnItem(player, sword))
             {
 
-                if (Program.FrmLevelInstance.picSword.Parent != null)
+                if (Program.FrmLevel2Instance.picSword.Parent != null)
                 {
                     inventory.AddItem(sword);
                     inventory.DisplayInventory();
-                    Program.FrmLevelInstance.picSword.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
+                    Program.FrmLevel2Instance.picSword.Parent.Controls.Remove(Program.FrmLevel2Instance.picSword);
                 }
             }
 
             if (HitAnItem(player, sheild))
             {
 
-                if (Program.FrmLevelInstance.picSheild.Parent != null)
+                if (Program.FrmLevel2Instance.picSheild.Parent != null)
                 {
                     inventory.AddItem(sheild);
                     inventory.DisplayInventory();
-                    Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSheild);
+                    Program.FrmLevel2Instance.picSheild.Parent.Controls.Remove(Program.FrmLevel2Instance.picSheild);
                 }
             }
 
@@ -250,10 +251,10 @@ namespace Fall2020_CSC403_Project
                    player.Collider.Intersects(portalToNextLevel2);
         }
 
-        private void WarpToLevel2()
+        private void WarpToLevel3()
         {
-            FrmLevel2 frmLevel2 = new FrmLevel2(); // Fix the variable name here
-            frmLevel2.Show(); // Now using the correct variable name
+//            FrmLevel3 FrmLevel3 = new FrmLevel3(); // Fix the variable name here
+//            FrmLevel3.Show(); // Now using the correct variable name
             this.Hide(); // Hide the current form instead of closing it, if necessary
         }
 
@@ -299,7 +300,7 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void FrmLevel2_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
