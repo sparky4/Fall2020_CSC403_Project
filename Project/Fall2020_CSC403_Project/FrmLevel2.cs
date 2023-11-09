@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel2 : Form
     {
+        public short lvl = 2;
         private WindowsMediaPlayer mediaPlayer = new WindowsMediaPlayer();
 
         private Player player;
@@ -200,10 +201,6 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(bossKoolaid);
             }
-            // if (IsAtPortal())
-            // {
-            //     CompleteLevel();
-            // }
             if (!levelCompleted && IsAtPortal())
             {
                 levelCompleted = true;
@@ -251,14 +248,6 @@ namespace Fall2020_CSC403_Project
                    player.Collider.Intersects(portalToNextLevel2);
         }
 
-        private void WarpToLevel3()
-        {
-//            FrmLevel3 FrmLevel3 = new FrmLevel3(); // Fix the variable name here
-//            FrmLevel3.Show(); // Now using the correct variable name
-            this.Hide(); // Hide the current form instead of closing it, if necessary
-        }
-
-
         /*private bool HitAnItem(Character you, Item item)
         {
             return you.Collider.Intersects(item.Collider);
@@ -289,6 +278,7 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.lvl = lvl;
             if (frmBattle != null)
             {
                 frmBattle.Show();
