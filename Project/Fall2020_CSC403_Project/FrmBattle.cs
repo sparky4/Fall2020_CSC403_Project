@@ -62,6 +62,8 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
+        private static int battlesWon = 0;
+
         private void UpdateHealthBars()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -111,7 +113,15 @@ namespace Fall2020_CSC403_Project
                 DeleteEnemy(enemy);
                 instance = null;
                 Close();
+
+                IncrementAndDisplayBattlesWon();
             }
+        }
+
+        private void IncrementAndDisplayBattlesWon()
+        {
+            battlesWon++;
+            MessageBox.Show("Battles won: " + battlesWon, "Victory");
         }
 
         // Deletes enemy by removing them from the components list
