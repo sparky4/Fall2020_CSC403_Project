@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel : Form
     {
+        public short lvl = 1;
         private WindowsMediaPlayer mediaPlayer = new WindowsMediaPlayer();
 
         private Player player;
@@ -45,7 +46,6 @@ namespace Fall2020_CSC403_Project
         private void PlayBackgroundMusic()
         {
             //fix by sparky4
-
             mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
 
             if (!File.Exists(mediaPlayer.URL))
@@ -78,9 +78,11 @@ namespace Fall2020_CSC403_Project
 
         private void CompleteLevel()
         {
-            FrmLevel2 frmLevel2 = new FrmLevel2();
+            //FrmLevel2 frmLevel2 = new FrmLevel2();
+            Program.FrmLevel2Instance = new FrmLevel2();
             this.Hide();
-            frmLevel2.ShowDialog(); // Or use Show() if you don't want it to be modal.
+            //frmLevel2.ShowDialog(); // Or use Show() if you don't want it to be modal.
+            Program.FrmLevel2Instance.ShowDialog();
             this.Close(); // Close FrmLevel if you're done with it.
         }
 
@@ -199,10 +201,6 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(bossKoolaid);
             }
-            // if (IsAtPortal())
-            // {
-            //     CompleteLevel();
-            // }
             if (!levelCompleted && IsAtPortal())
             {
                 levelCompleted = true;
@@ -211,11 +209,10 @@ namespace Fall2020_CSC403_Project
 
             if (HitAnItem(player, gun))
             {
-                // We must check that the gun exists before attmpting to delete it
+                // We must check that the gun exists before attmpting to delete it from the map
                 if (Program.FrmLevelInstance.picGun.Parent != null)
                 {
                     inventory.AddItem(gun);
-                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picGun.Parent.Controls.Remove(Program.FrmLevelInstance.picGun);
                 }
             }
@@ -226,7 +223,6 @@ namespace Fall2020_CSC403_Project
                 if (Program.FrmLevelInstance.picSword.Parent != null)
                 {
                     inventory.AddItem(sword);
-                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picSword.Parent.Controls.Remove(Program.FrmLevelInstance.picSword);
                 }
             }
@@ -237,7 +233,6 @@ namespace Fall2020_CSC403_Project
                 if (Program.FrmLevelInstance.picSheild.Parent != null)
                 {
                     inventory.AddItem(sheild);
-                    inventory.DisplayInventory();
                     Program.FrmLevelInstance.picSheild.Parent.Controls.Remove(Program.FrmLevelInstance.picSheild);
                 }
             }
@@ -249,14 +244,6 @@ namespace Fall2020_CSC403_Project
             return player.Collider.Intersects(portalToNextLevel1) ||
                    player.Collider.Intersects(portalToNextLevel2);
         }
-
-        private void WarpToLevel2()
-        {
-            FrmLevel2 frmLevel2 = new FrmLevel2(); // Fix the variable name here
-            frmLevel2.Show(); // Now using the correct variable name
-            this.Hide(); // Hide the current form instead of closing it, if necessary
-        }
-
 
         private bool HitAnItem(Character you, Item item)
         {
@@ -288,6 +275,7 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.lvl = lvl;
             if (frmBattle != null)
             {
                 frmBattle.Show();
@@ -301,6 +289,13 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            // The player wants to access their inventory
+            if (e.KeyCode == Keys.I)
+            {
+                inventory.DisplayInventory();
+            }
+
+            // The player wants to access the settings
             if (e.KeyCode == Keys.Escape)
             {
                 settings = new Settings();
@@ -311,6 +306,7 @@ namespace Fall2020_CSC403_Project
 
 
             //movement
+            // by sparky4
             if (Keyboard.IsKeyDown(Key.Up) && Keyboard.IsKeyDown(Key.Left))
             { player.GoUpLeft(); }// player.GoLeft(); Console.WriteLine("up left"); }
 

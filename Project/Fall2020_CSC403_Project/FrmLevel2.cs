@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmLevel2 : Form
     {
+        public short lvl = 2;
         private WindowsMediaPlayer mediaPlayer = new WindowsMediaPlayer();
 
         private Player player;
@@ -106,8 +107,8 @@ namespace Fall2020_CSC403_Project
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), "Cheeto");
 
             // Giving values to all items
-            
-            gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING),"gun");
+            // no items on 2nd level -- sparky4
+            /*gun = new Item(CreatePosition(picGun), CreateCollider(picGun, PADDING),"gun");
             gun.Img = picGun.Image;
             
 
@@ -116,7 +117,7 @@ namespace Fall2020_CSC403_Project
 
 
             sheild = new Item(CreatePosition(picSheild), CreateCollider(picSheild, PADDING),"sheild");
-            sheild.Img = picSheild.Image;
+            sheild.Img = picSheild.Image;*/
 
 
             inventory = new Inventory();
@@ -200,17 +201,13 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(bossKoolaid);
             }
-            // if (IsAtPortal())
-            // {
-            //     CompleteLevel();
-            // }
             if (!levelCompleted && IsAtPortal())
             {
                 levelCompleted = true;
                 CompleteLevel();
             }
 
-            if (HitAnItem(player, gun))
+            /*if (HitAnItem(player, gun))
             {
                 // We must check that the gun exists before attmpting to delete it
                 if (Program.FrmLevel2Instance.picGun.Parent != null)
@@ -241,7 +238,7 @@ namespace Fall2020_CSC403_Project
                     inventory.DisplayInventory();
                     Program.FrmLevel2Instance.picSheild.Parent.Controls.Remove(Program.FrmLevel2Instance.picSheild);
                 }
-            }
+            }*/
 
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
@@ -251,18 +248,10 @@ namespace Fall2020_CSC403_Project
                    player.Collider.Intersects(portalToNextLevel2);
         }
 
-        private void WarpToLevel3()
-        {
-//            FrmLevel3 FrmLevel3 = new FrmLevel3(); // Fix the variable name here
-//            FrmLevel3.Show(); // Now using the correct variable name
-            this.Hide(); // Hide the current form instead of closing it, if necessary
-        }
-
-
-        private bool HitAnItem(Character you, Item item)
+        /*private bool HitAnItem(Character you, Item item)
         {
             return you.Collider.Intersects(item.Collider);
-        }
+        }*/
 
 
         private bool HitAWall(Character c)
@@ -289,6 +278,7 @@ namespace Fall2020_CSC403_Project
             player.ResetMoveSpeed();
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.lvl = lvl;
             if (frmBattle != null)
             {
                 frmBattle.Show();
@@ -368,6 +358,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picBossKoolAid_Click(object sender, EventArgs e)
         {
 
         }

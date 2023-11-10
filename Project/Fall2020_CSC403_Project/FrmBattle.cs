@@ -9,6 +9,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class FrmBattle : Form
     {
+        public short lvl;
         public static FrmBattle instance = null;
         public bool in_use = true;
         private Enemy enemy;
@@ -117,6 +118,7 @@ namespace Fall2020_CSC403_Project
                 IncrementAndDisplayBattlesWon();
             }
         }
+<<<<<<< HEAD
 
         private void IncrementAndDisplayBattlesWon()
         {
@@ -124,21 +126,45 @@ namespace Fall2020_CSC403_Project
             MessageBox.Show("Battles won: " + battlesWon, "Victory");
         }
 
+=======
+        
+>>>>>>> d5bcfc1bac287e27a01c8530053a6e7128f22d54
         // Deletes enemy by removing them from the components list
         // .Parent gets the components list
         private void DeleteEnemy(Enemy enemy)
         {
-            if (enemy.Name == "Poison Packet" & Program.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
+            switch (lvl)
             {
-                Program.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyPoisonPacket);
-            }
-            else if (enemy.Name == "Cheeto" & Program.FrmLevelInstance.picEnemyCheeto.Parent != null)
-            {
-                Program.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyCheeto);
-            }
-            else if (enemy.Name == "Koolaid Man" & Program.FrmLevelInstance.picBossKoolAid.Parent != null)
-            {
-                Program.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevelInstance.picBossKoolAid);
+                //level 1 enemies
+                case 1:
+                    if (enemy.Name == "Poison Packet" && Program.FrmLevelInstance.picEnemyPoisonPacket.Parent != null)
+                    {
+                        Program.FrmLevelInstance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyPoisonPacket);
+                    }
+                    else if (enemy.Name == "Cheeto" && Program.FrmLevelInstance.picEnemyCheeto.Parent != null)
+                    {
+                        Program.FrmLevelInstance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevelInstance.picEnemyCheeto);
+                    }
+                    else if (enemy.Name == "Koolaid Man" && Program.FrmLevelInstance.picBossKoolAid.Parent != null)
+                    {
+                        Program.FrmLevelInstance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevelInstance.picBossKoolAid);
+                    }
+                    break;
+                //level2 enemies
+                case 2:
+                    if (enemy.Name == "Poison Packet" && Program.FrmLevel2Instance.picEnemyPoisonPacket.Parent != null)
+                    {
+                        Program.FrmLevel2Instance.picEnemyPoisonPacket.Parent.Controls.Remove(Program.FrmLevel2Instance.picEnemyPoisonPacket);
+                    }
+                    else if (enemy.Name == "Cheeto" && Program.FrmLevel2Instance.picEnemyCheeto.Parent != null)
+                    {
+                        Program.FrmLevel2Instance.picEnemyCheeto.Parent.Controls.Remove(Program.FrmLevel2Instance.picEnemyCheeto);
+                    }
+                    else if (enemy.Name == "Koolaid Man" && Program.FrmLevel2Instance.picBossKoolAid.Parent != null)
+                    {
+                        Program.FrmLevel2Instance.picBossKoolAid.Parent.Controls.Remove(Program.FrmLevel2Instance.picBossKoolAid);
+                    }
+                break;
             }
         }
 
@@ -216,19 +242,6 @@ namespace Fall2020_CSC403_Project
             enemy.AttackEvent -= PlayerDamage;
             player.AttackEvent -= EnemyDamage;
         }
-
-        //disable close button
-        /*private const int CP_NOCLOSE_BUTTON = 0x200;
-        protected override CreateParams CreateParams
-        {
-          get
-          {
-            CreateParams myCp = base.CreateParams;
-            myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
-            return myCp;
-          }
-        }*/
-
         private void FrmBattle_Load(object sender, EventArgs e)
         {
         }
