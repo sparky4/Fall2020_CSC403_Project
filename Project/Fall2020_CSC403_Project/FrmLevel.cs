@@ -46,7 +46,7 @@ namespace Fall2020_CSC403_Project
         private void PlayBackgroundMusic()
         {
             //fix by sparky4
-            //mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
+            mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
 
             if (!File.Exists(mediaPlayer.URL))
             {
@@ -78,6 +78,7 @@ namespace Fall2020_CSC403_Project
 
         private void CompleteLevel()
         {
+            mediaPlayer.controls.stop();
             //FrmLevel2 frmLevel2 = new FrmLevel2();
             Program.FrmLevel2Instance = new FrmLevel2(player,player.inventory);
             this.Hide();

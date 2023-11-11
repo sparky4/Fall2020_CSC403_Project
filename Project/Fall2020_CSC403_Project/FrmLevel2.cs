@@ -90,8 +90,7 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel2_Load(object sender, EventArgs e)
         {
-            // not needed for level 2
-            //PlayBackgroundMusic();
+            PlayBackgroundMusic();
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
