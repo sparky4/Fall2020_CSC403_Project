@@ -79,7 +79,7 @@ namespace Fall2020_CSC403_Project
         private void CompleteLevel()
         {
             //FrmLevel2 frmLevel2 = new FrmLevel2();
-            Program.FrmLevel2Instance = new FrmLevel2();
+            Program.FrmLevel2Instance = new FrmLevel2(player,player.inventory);
             this.Hide();
             //frmLevel2.ShowDialog(); // Or use Show() if you don't want it to be modal.
             Program.FrmLevel2Instance.ShowDialog();
@@ -334,32 +334,7 @@ namespace Fall2020_CSC403_Project
                 if ((e.KeyCode == Keys.Right && e.KeyCode != Keys.Left))
                     player.GoRight();
             }
-            //else player.ResetMoveSpeed();
-            /*
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    player.GoLeft();
-                    break;
-
-                case Keys.Right:
-                    player.GoRight();
-                    break;
-
-                case Keys.Up:
-                    player.GoUp();
-                    break;
-
-                case Keys.Down:
-                    player.GoDown();
-                    break;
-
-                default:
-                    player.ResetMoveSpeed();
-                    break;
-           
-            }
-                   */
+            
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)

@@ -10,12 +10,13 @@ using System.Windows.Input;
 
 namespace Fall2020_CSC403_Project
 {
-    public partial class FrmLevel2 : Form
+    public partial class FrmLevel2 : Form 
     {
         public short lvl = 2;
         private WindowsMediaPlayer mediaPlayer = new WindowsMediaPlayer();
+        public Player player;
+        public Inventory inventory;
 
-        private Player player;
 
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
@@ -23,11 +24,10 @@ namespace Fall2020_CSC403_Project
         private Character[] walls;
 
 
-        private Inventory inventory;
         // Creating Items
-        private Item gun;
-        private Item sword;
-        private Item sheild;
+        public Item gun;
+        public Item sword;
+        public Item sheild;
 
         //2 boundary's are needed to cover the top right of the screen,  
         private Collider portalToNextLevel1;
@@ -57,8 +57,10 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        public FrmLevel2()
+        public FrmLevel2(Player player, Inventory inventory)
         {
+            this.player = player;
+            this.inventory = inventory;
             InitializeComponent();
 
             // Using mouseclick to get x and y coordinates
@@ -101,7 +103,7 @@ namespace Fall2020_CSC403_Project
             Rectangle portalRect2 = new Rectangle(1153, 5, 5, 272);  
             portalToNextLevel2 = new Collider(portalRect2);
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            player.Position = new Vector2(200,500);
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), "Koolaid Man");
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), "Poison Packet");
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), "Cheeto");
@@ -120,8 +122,6 @@ namespace Fall2020_CSC403_Project
             sheild.Img = picSheild.Image;*/
 
 
-            inventory = new Inventory();
-
 
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
@@ -139,7 +139,7 @@ namespace Fall2020_CSC403_Project
                 walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
             }
 
-            Game.player = player;
+            //Game.player = player;
             timeBegin = DateTime.Now;
         }
 
@@ -292,6 +292,11 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel2_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+
+            if (e.KeyCode == Keys.I)
+            {
+                inventory.DisplayInventory();
+            }
             if (e.KeyCode == Keys.Escape)
             {
                 settings = new Settings();
@@ -329,32 +334,7 @@ namespace Fall2020_CSC403_Project
                 if ((e.KeyCode == Keys.Right && e.KeyCode != Keys.Left))
                     player.GoRight();
             }
-            //else player.ResetMoveSpeed();
-            /*
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    player.GoLeft();
-                    break;
-
-                case Keys.Right:
-                    player.GoRight();
-                    break;
-
-                case Keys.Up:
-                    player.GoUp();
-                    break;
-
-                case Keys.Down:
-                    player.GoDown();
-                    break;
-
-                default:
-                    player.ResetMoveSpeed();
-                    break;
            
-            }
-                   */
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
