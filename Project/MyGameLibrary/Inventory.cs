@@ -14,7 +14,8 @@ namespace Fall2020_CSC403_Project.code
 
         public Inventory()
         {
-            items = new List<Item>();
+            this.items = new List<Item>();
+ 
         }
 
 
@@ -34,20 +35,18 @@ namespace Fall2020_CSC403_Project.code
 
             foreach (var item in items)
             {
+
                 if (item.Name == "gun")
                 {
                     PictureBox gun = new PictureBox();
-                    // Set PictureBox properties
+                    // Set Button properties
                     gun.Location = new Point(10, 50); // Set the location
                     gun.Size = new Size(100, 100);    // Set the size
 
                     // Load an image (replace "yourImageFileName.png" with the actual file name of your image)
 
-                    gun.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\gun.fw.png");
-
-                    // Set PictureBoxSizeMode (adjust as needed)
-                    gun.SizeMode = PictureBoxSizeMode.StretchImage;
-
+                    gun.BackgroundImage = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\gun.fw.png");
+                    gun.BackgroundImageLayout = ImageLayout.Stretch;
                     inventoryWindow.Controls.Add(gun);
                 }
                 if (item.Name == "sword")
@@ -58,10 +57,8 @@ namespace Fall2020_CSC403_Project.code
                     sword.Size = new Size(100, 100);    
 
 
-                    sword.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\sword.jpg");
-
-
-                    sword.SizeMode = PictureBoxSizeMode.StretchImage;
+                    sword.BackgroundImage = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\sword.jpg");
+                    sword.BackgroundImageLayout = ImageLayout.Stretch;
 
                     inventoryWindow.Controls.Add(sword);
                 }
@@ -73,9 +70,9 @@ namespace Fall2020_CSC403_Project.code
                     sheild.Size = new Size(100, 100);    
 
 
-                    sheild.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\sheild.jpg");
+                    sheild.BackgroundImage = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\sheild.jpg");
 
-                    sheild.SizeMode = PictureBoxSizeMode.StretchImage;
+                    sheild.BackgroundImageLayout = ImageLayout.Stretch;
 
                     inventoryWindow.Controls.Add(sheild);
                 }

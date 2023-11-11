@@ -245,11 +245,79 @@ namespace Fall2020_CSC403_Project
             this.Close(); // Close the form (combat window)
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void healButton_Click(object sender, EventArgs e)
         {
             const int HEAL_AMOUNT = 10; //logic
             player.Heal(HEAL_AMOUNT);
             UpdateHealthBars(); // To update the UI after Healing 
+        }
+
+        
+        private void inventoryButton_Click(object sender, EventArgs e)
+        {
+            this.btnAttack.Visible = false;
+            this.button1.Visible = false;
+            this.button2.Visible = false;
+            this.button3.Visible = false;
+            this.button4.Visible = false;
+            this.button8.Visible = true;
+
+            foreach (var item in player.inventory.items)
+            {
+                if (item.Name == "gun")
+                {
+                    this.button5.Visible = true;
+                }
+                if (item.Name == "sword")
+                {
+                    this.button6.Visible = true;
+                }
+                if (item.Name == "sheild")
+                {
+                    this.button7.Visible = true;
+                }
+            }
+
+
+        }
+
+        private void useGun_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("gun");
+        }
+        private void useSword_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("sword");
+        }
+        private void useSheild_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("sheild");
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.btnAttack.Visible = true;
+            this.button1.Visible = true;
+            this.button2.Visible = true;
+            this.button3.Visible = true;
+            this.button4.Visible = true;
+            this.button8.Visible = false;
+
+            foreach (var item in player.inventory.items)
+            {
+                if (item.Name == "gun")
+                {
+                    this.button5.Visible = false;
+                }
+                if (item.Name == "sword")
+                {
+                    this.button6.Visible = false;
+                }
+                if (item.Name == "sheild")
+                {
+                    this.button7.Visible = false;
+                }
+            }
         }
     }
 }

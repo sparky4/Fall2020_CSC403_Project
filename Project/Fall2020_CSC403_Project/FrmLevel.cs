@@ -23,7 +23,7 @@ namespace Fall2020_CSC403_Project
         private Character[] walls;
 
 
-        private Inventory inventory;
+        public Inventory inventory;
         // Creating Items
         private Item gun;
         private Item sword;
@@ -46,7 +46,7 @@ namespace Fall2020_CSC403_Project
         private void PlayBackgroundMusic()
         {
             //fix by sparky4
-            mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
+            //mediaPlayer.URL = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\data\\song1.wav"; // your music file pat
 
             if (!File.Exists(mediaPlayer.URL))
             {
@@ -120,7 +120,7 @@ namespace Fall2020_CSC403_Project
             sheild.Img = picSheild.Image;
 
 
-            inventory = new Inventory();
+            inventory = player.inventory;
 
 
 
