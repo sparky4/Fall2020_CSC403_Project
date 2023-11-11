@@ -25,9 +25,9 @@ namespace Fall2020_CSC403_Project
 
         public Inventory inventory;
         // Creating Items
-        private Item gun;
-        private Item sword;
-        private Item sheild;
+        public Item gun;
+        public Item sword;
+        public Item sheild;
 
         //2 boundary's are needed to cover the top right of the screen,  
         private Collider portalToNextLevel1;

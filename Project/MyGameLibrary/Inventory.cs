@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -22,6 +23,18 @@ namespace Fall2020_CSC403_Project.code
         public void AddItem(Item item)
         {
             items.Add(new Item(item.Position, item.Collider, item.Name));
+        }
+
+        public void RemoveItem(String name)
+        {
+
+            foreach (var item in items.ToList())
+            {
+                if (item.Name == name)
+                {
+                    items.Remove(item);
+                }
+            }
         }
 
 

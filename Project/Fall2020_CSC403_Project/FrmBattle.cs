@@ -118,7 +118,7 @@ namespace Fall2020_CSC403_Project
                 IncrementAndDisplayBattlesWon();
             }
         }
-<<<<<<< HEAD
+
 
         private void IncrementAndDisplayBattlesWon()
         {
@@ -126,9 +126,7 @@ namespace Fall2020_CSC403_Project
             MessageBox.Show("Battles won: " + battlesWon, "Victory");
         }
 
-=======
-        
->>>>>>> d5bcfc1bac287e27a01c8530053a6e7128f22d54
+
         // Deletes enemy by removing them from the components list
         // .Parent gets the components list
         private void DeleteEnemy(Enemy enemy)
@@ -297,14 +295,66 @@ namespace Fall2020_CSC403_Project
 
         private void useGun_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("gun");
+
+            player.inventory.RemoveItem("gun");
+            this.button5.Visible = false;
+
+            player.OnAttack(-8);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateHealthBars();
+            if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            if (enemy.Health <= 0)
+            {
+                DeleteEnemy(enemy);
+                instance = null;
+                Close();
+
+                IncrementAndDisplayBattlesWon();
+            }
         }
         private void useSword_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("sword");
+            this.button6.Visible = false;
+            player.inventory.RemoveItem("sword");
+
+            player.OnAttack(-5);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateHealthBars();
+            if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            if (enemy.Health <= 0)
+            {
+                DeleteEnemy(enemy);
+                instance = null;
+                Close();
+
+                IncrementAndDisplayBattlesWon();
+            }
         }
         private void useSheild_Click(object sender, EventArgs e)
         {
+           
+            this.button7.Visible = false;
+            player.inventory.RemoveItem("sheild");
+
+            // enemy does half damage for three turns
             Console.WriteLine("sheild");
         }
 
