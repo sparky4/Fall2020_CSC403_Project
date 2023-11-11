@@ -29,7 +29,6 @@ namespace Fall2020_CSC403_Project {
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel2));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -292,7 +291,7 @@ namespace Fall2020_CSC403_Project {
             // picEnemyCheeto
             // 
             this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
+            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.LilCaesars;
             this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyCheeto.Image = global::Fall2020_CSC403_Project.Properties.Resources.LilCaesars;
             this.picEnemyCheeto.Location = new System.Drawing.Point(1117, 665);
@@ -306,7 +305,7 @@ namespace Fall2020_CSC403_Project {
             // picEnemyPoisonPacket
             // 
             this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
+            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Noid;
             this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyPoisonPacket.Image = global::Fall2020_CSC403_Project.Properties.Resources.Noid;
             this.picEnemyPoisonPacket.Location = new System.Drawing.Point(147, 121);
@@ -333,7 +332,7 @@ namespace Fall2020_CSC403_Project {
             // picBossKoolAid
             // 
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
+            this.picBossKoolAid.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.MasterShake;
             this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBossKoolAid.Image = global::Fall2020_CSC403_Project.Properties.Resources.MasterShake;
             this.picBossKoolAid.Location = new System.Drawing.Point(1295, 91);
