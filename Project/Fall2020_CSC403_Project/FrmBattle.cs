@@ -347,6 +347,12 @@ namespace Fall2020_CSC403_Project
 
                 IncrementAndDisplayBattlesWon();
             }
+            if (lvl > 1)
+            {
+                DeleteEnemy(Program.FrmLevelInstance.bossKoolaid);
+                DeleteEnemy(Program.FrmLevelInstance.enemyPoisonPacket);
+                DeleteEnemy(Program.FrmLevelInstance.enemyCheeto);
+            }
         }
         private void useSheild_Click(object sender, EventArgs e)
         {

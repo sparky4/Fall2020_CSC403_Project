@@ -17,9 +17,9 @@ namespace Fall2020_CSC403_Project
 
         private Player player;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
-        private Enemy enemyCheeto;
+        public Enemy enemyPoisonPacket;
+        public Enemy bossKoolaid;
+        public Enemy enemyCheeto;
         private Character[] walls;
 
 
