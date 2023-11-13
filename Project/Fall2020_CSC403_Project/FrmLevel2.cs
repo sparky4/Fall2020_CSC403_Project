@@ -282,7 +282,7 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.Show();
 
-                if (enemy == bossKoolaid)
+                if (enemy == bossKoolaid && lvl == 1)
                 {
                     frmBattle.SetupForBossBattle();
                 }
