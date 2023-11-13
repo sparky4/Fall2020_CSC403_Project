@@ -347,7 +347,8 @@ namespace Fall2020_CSC403_Project
 
                 IncrementAndDisplayBattlesWon();
             }
-            if (lvl > 1)
+            //delete enemy from previous levels
+            if (lvl == 2)
             {
                 DeleteEnemy(Program.FrmLevelInstance.bossKoolaid);
                 DeleteEnemy(Program.FrmLevelInstance.enemyPoisonPacket);
