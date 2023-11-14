@@ -357,12 +357,34 @@ namespace Fall2020_CSC403_Project
         }
         private void useSheild_Click(object sender, EventArgs e)
         {
-           
+
             this.button7.Visible = false;
             player.inventory.RemoveItem("sheild");
 
-            // enemy does half damage for three turns
-            Console.WriteLine("sheild");
+            enemy.strength -= 1;
+
+            player.OnAttack(-4);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateHealthBars();
+
+            if (player.Health <= 0)
+            {
+                instance = null;
+                Close();
+            }
+
+            if (enemy.Health <= 0)
+            {
+                DeleteEnemy(enemy);
+                instance = null;
+                Close();
+
+                IncrementAndDisplayBattlesWon();
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
